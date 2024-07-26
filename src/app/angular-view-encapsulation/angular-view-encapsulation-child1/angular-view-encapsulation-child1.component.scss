@@ -1,0 +1,18 @@
+:host {
+    div{
+        padding:20px;
+        background-color: yellow;
+    }
+    h2 {
+        color: black;
+    }
+
+    .description {
+        background-color: blue;
+    }
+
+    :host-context(description) {
+        background-color: blue;
+    }
+  
+}

@@ -1,0 +1,13 @@
+<div>
+<input type="text" value="firstName" #inputEl/>
+<input type="text" value="middleName" #inputEl/>
+<input type="text" value="lastName" #inputEl/>
+<button type="button" (click)="onSave()">Save</button>
+<br/><br/>
+
+<ul *ngIf="this.inputElements">
+    <li *ngFor="let item of this.inputElements"> {{item.nativeElement.value}}</li>
+</ul>
+
+</div>
+

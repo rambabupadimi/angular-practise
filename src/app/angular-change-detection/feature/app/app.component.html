@@ -1,0 +1,19 @@
+
+
+<h1>1. An event handled in search component with default change detection</h1>
+<h1>2. An event handled in main component with push change detection</h1>
+<h1>3. An event handled in descendent components [ Login Component] </h1>
+<h1>4. New inputs to component which has on push [ </h1>
+
+<div style="border: 1px solid blue;padding: 20px;">
+<p>app works!</p>
+<button (click)="update()">INC</button>
+<div style="display: flex;">
+    <div style="background-color: wheat;padding: 20px;">
+<app-header></app-header>
+</div>
+<div style="background-color: aquamarine;padding: 20px;">
+<app-main [counter] = "counter"></app-main>
+</div>
+</div>
+</div>

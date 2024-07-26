@@ -1,0 +1,19 @@
+<p>data-binding works!</p>
+<p>1. One-way data data-binding</p>
+{{message}}
+
+<p [innerHTML]="propertyBindingMessage"></p>
+
+<input type="text" [(ngModel)]="name"/> {{name}}
+
+<!-- <app-sizer [size]="fontSizePx" (sizeChange) = "fontSizePx=$event" ></app-sizer> -->
+
+<p>sizer in parent : {{size}}</p>
+
+ <app-sizer [(size)]="size" ></app-sizer> 
+<br/>
+ <button (click)="update()" >Update</button>
+
+ <!-- <input  type="text" [(size)] = "size"/> -->
+
+ <br/>

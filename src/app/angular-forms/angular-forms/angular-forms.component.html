@@ -1,0 +1,20 @@
+<p>angular-forms works!</p>
+
+<button type="button" (click)="add()"> Add Item</button>
+
+<form [formGroup]="customForm">
+    <!-- <input type="text" formControlName="name" />
+    <input type="text" formControlName="age" /> -->
+
+    <div formArrayName="students">
+    <div *ngFor="let item of studentsArray.controls; let i = index">
+        <div [formGroupName]="i">
+                <input type="text" formControlName="name"/>
+                <input type="text" formControlName="email"/>
+        </div>
+        <button type="button" (click)="deleteItem(i)"> Delete</button>
+    </div>
+    </div>
+    <button type="submit" (click)="save()"> Add</button>
+
+</form>

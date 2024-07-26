@@ -1,0 +1,21 @@
+<div><!-- #heading is template reference variable-->
+
+ <h2 #heading>Product Component</h2>   
+<h3>1. Change heading color using Viewchild() decorator</h3>
+<h3>2. Sending data from product list component to product details using input and output decorators</h3>
+<h3>3. Sending data from product list component to product details using ViewChild decorator</h3>
+<h3>4. Access input fields data using ViewChildren() decorator </h3>
+<h4>5. Access parent component projected data from child using ContentChild() and ContentChildren()</h4>
+<h4>6. Usage of ng-template and ng-container</h4>
+
+
+<app-app-cart></app-app-cart>
+
+
+<app-product-list (selectedItem)="selectedListItem($event)"></app-product-list>
+<app-product-details [selectedItemValue]="selectedItem" [productListComponent]="productListComponent"></app-product-details>
+<app-product-form></app-product-form>
+<br/>
+<app-app-template></app-app-template>
+
+</div>

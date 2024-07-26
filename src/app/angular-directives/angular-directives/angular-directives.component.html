@@ -1,0 +1,33 @@
+<h1>Directives</h1>
+
+<!-- structural directives *ngIf, *ngFor, *ngSwitch-->
+
+<h2> 1. Structural ngIf, ngFor, ngSwitch </h2>
+<h2> 2. Behavioural directives NgStyle and NgClass</h2>
+<h2> 3. Custom directive and send input parameters & output parameters</h2>
+
+
+<ng-container *ngIf="true;else elseContent"> If content</ng-container>
+<ng-template #elseContent>Else content</ng-template>
+
+<br/>
+<ul>
+    <li *ngFor="let item of items"> {{item}}</li>
+</ul>
+<br/>
+<ng-container [ngSwitch]="day">
+    <ng-content *ngSwitchCase="1"> MONDAY</ng-content>
+    <div *ngSwitchCase="2"> TUESDAY</div>
+    <div *ngSwitchDefault > HOLIDAY</div>
+</ng-container>
+
+
+<!-- behavioural directives-->
+
+<h1 [ngClass]="true ? 'color-red': 'color-blue'">NG Class Directive</h1>
+<h1 [ngStyle]="{ 'color' : color}" >NG STYLE Directive</h1>
+
+
+<!-- custom directive -->
+
+<h2 appAngularCustomDirective [color]="'yellow'"  (selectedItem) = "onSelect($event)">Custom Directive</h2>

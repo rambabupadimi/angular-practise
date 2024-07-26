@@ -1,0 +1,14 @@
+<p>users-list works!</p>
+
+<button type="button" (click)="showList()"> Display List</button>
+
+<button type="button" (click)="applySort()">Sort By Name</button>
+
+<div>
+    @if (usersList.length>0) {
+        @for (item of usersList; track $index) {
+            <div>{{item.name}}</div>
+        }
+    }
+
+</div>

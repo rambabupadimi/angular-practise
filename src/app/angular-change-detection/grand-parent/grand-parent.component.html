@@ -1,0 +1,16 @@
+<p>grand-parent works!</p>
+<button (click)="inc()">GrandParent INC</button>
+{{counter}}
+
+<button (click)="incArray()">INC Array</button>
+@for (item of tempArray; track $index) {
+    {{item}}
+}
+
+<p>setInterval timer count - {{timerCount}}</p>
+<p>promise Response  - {{promiseResponse}}</p>
+
+
+
+<app-parent></app-parent>
+

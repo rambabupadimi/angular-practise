@@ -1,0 +1,16 @@
+<p>user-list works!</p>
+<!-- <p *ngFor="let item of usersList">{{item?.id}}</p> -->
+<div  *ngIf="usersList">
+<select (change)="onUserSelect($event)"  >
+    @for(item of usersList; track $index) {
+        <option [value]="item.id">{{item.name}}</option>
+    }
+</select>
+
+</div>
+
+<div>
+    @for(item1 of postsList; track $index) {
+        <p>{{item1.title}}</p>
+    }
+</div>

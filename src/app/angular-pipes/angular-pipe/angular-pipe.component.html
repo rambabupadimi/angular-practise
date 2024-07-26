@@ -1,0 +1,21 @@
+<h2>Pipes</h2>
+
+<h2>1. Built in pipes , currency, uppercase, async, date etc</h2>
+<h2>2. Pure and impure pipes, default angular create impure pipes</h2>
+<h2>3. Create custom pipe and send parameters</h2>
+<h2>4. Chaining the pipes</h2>
+
+
+<p>{{ price | currency :'INR' }}</p>
+<p>{{ currentDate | date }}</p>
+<p>{{ myObservable | async }}</p>
+<p>{{ myPromise | async }}</p>
+
+<ul>
+    <li *ngFor="let item of values | angularCustomPipe: 5 ">{{item}}</li>
+</ul>
+
+<p>{{call()}}</p>
+<p>{{ currentDate | date:'medium' | uppercase }}</p>
+
+<button type="button" (click) ="change()">Click</button>
