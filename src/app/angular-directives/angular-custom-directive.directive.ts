@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
   selector: '[appAngularCustomDirective]',
@@ -11,7 +11,10 @@ export class AngularCustomDirectiveDirective {
 
   @Output() selectedItem = new EventEmitter();
 
-  constructor(private el: ElementRef) {}
+  @HostBinding('style.border') border:string = 'none';
+
+  constructor(private el: ElementRef) {
+  }
 
   @HostListener('click') onClick() {
     this.el.nativeElement.style.color= this.color;
@@ -19,12 +22,13 @@ export class AngularCustomDirectiveDirective {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.el.nativeElement.style.color="blue";
+    this.el.nativeElement.style.color="red";
+    this.border = '1px solid blue';
   }
 
   @HostListener('mouseout') onMouseOut() {
     this.el.nativeElement.style.color="green";
+    this.border = 'none';
   }
-
 
 }

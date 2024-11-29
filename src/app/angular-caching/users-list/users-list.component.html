@@ -4,11 +4,16 @@
 
 <button type="button" (click)="applySort()">Sort By Name</button>
 
+<button type="button" (click)="addRecord()" >Add</button>
+
+<button type="button"  (click)="updateRecord()">Update</button>
+
+<button type="button"  (click)="deleteRecord()">Delete</button>
+
 <div>
     @if (usersList.length>0) {
         @for (item of usersList; track $index) {
             <div>{{item.name}}</div>
         }
     }
-
 </div>

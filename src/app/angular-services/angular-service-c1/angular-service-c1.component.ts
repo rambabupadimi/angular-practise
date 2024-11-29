@@ -12,7 +12,8 @@ export const LOCALE = new InjectionToken<string>('locale');
   imports: [CommonModule],
   templateUrl: './angular-service-c1.component.html',
   styleUrl: './angular-service-c1.component.scss',
-   providers: [ {provide: AngularServiceService, useClass: CounterServiceService}, 
+   providers: [ 
+    {provide: AngularServiceService, useClass: CounterServiceService}, 
     {
     provide: LOCALE,  useValue:'EN', multi:true
    },

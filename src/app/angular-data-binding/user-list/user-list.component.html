@@ -10,7 +10,7 @@
 </div>
 
 <div>
-    @for(item1 of postsList; track $index) {
+    @for(item1 of postsList; track trackByFun) {
         <p>{{item1.title}}</p>
     }
 </div>

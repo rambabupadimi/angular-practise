@@ -25,9 +25,17 @@ export class GrandParentComponent  implements OnInit, OnChanges, DoCheck{
   }
 
   incArray(){
-    this.tempArray.push(5);
-    console.log(this.tempArray);
-  }
+
+    setTimeout(()=>{
+
+            this.tempArray.push(5);
+            this.counter = this.counter+1;
+            console.log(this.tempArray,this.counter);
+           // this.changeDetectorRef.detectChanges();
+    },1000)
+   
+
+   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('GrandParent- on changes');
@@ -41,11 +49,35 @@ export class GrandParentComponent  implements OnInit, OnChanges, DoCheck{
       this.changeDetectorRef.detectChanges();
     },2000)
 
-    this.getAsyncData();
+   // this.getAsyncData();
 
   }
   ngDoCheck(): void {
     console.log('GrandParent- on docheck');
+  }
+
+  ngAfterContentInit(): void {
+    //Called after ngOnInit when the component's or directive's content has been initialized.
+    //Add 'implements AfterContentInit' to the class.
+    console.log('Grandparent content init');
+  }
+
+  ngAfterContentChecked(): void {
+    //Called after every check of the component's or directive's content.
+    //Add 'implements AfterContentChecked' to the class.
+    console.log('Grandparent content init checked');
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log('Grandparent view init');
+  }
+
+  ngAfterViewChecked(): void {
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
+    console.log('Grandparent view init checked');
   }
 
   async getAsyncData(){

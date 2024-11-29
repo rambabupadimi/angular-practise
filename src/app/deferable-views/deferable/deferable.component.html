@@ -1,0 +1,23 @@
+<p>deferable works!</p>
+
+
+<button type="button" (click)="showAdditionalInfo()">Show Component</button>
+<!-- view == templateRef variable-->
+
+<!-- @defer (on viewport) {} -->
+<!-- @defer (on viewport(view))-->
+<!-- @defer (on idle) -->
+<!-- @defer (on hover) -->
+<!-- @defer (on hover(btn)) -->
+<!-- @defer (on immediate) -->
+
+@defer (when showInfo) {
+    <app-deferable-item/>
+} @placeholder {
+    <p>Dynamic content will appear</p>
+} @loading (after 100ms; minimum 1s) {
+    <p>Loading....</p>
+} @error {
+    <p>Failed to load content</p>
+}
+ 

@@ -27,26 +27,28 @@ export class AngularLifeCyclesComponent implements  OnInit, OnChanges, OnDestroy
     console.log('on changes');
 
   }
-  ngOnDestroy(): void {
-    console.log('on destroy');
-
-  }
   ngDoCheck(): void {
     console.log('on do check');
   }
-  ngAfterViewInit(): void {
-    console.log('after view init');
-  }
-  ngAfterViewChecked(): void {
-    console.log('after onAfterViewChecked');
-  }
- 
+  
   ngAfterContentInit(): void {
     console.log('after content init ');
   }
   ngAfterContentChecked(): void {
     console.log('after onAfterContentChecked');
   }
+
+  ngAfterViewInit(): void {
+    console.log('after view init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('after onAfterViewChecked');
+  }
+  ngOnDestroy(): void {
+    console.log('on destroy');
+  }
+ 
+  
 
   inc(){
     this.count = this.count+1;

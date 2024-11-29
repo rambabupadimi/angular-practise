@@ -24,6 +24,14 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck{
   }
 
   inc(){
-    this.count = this.count+1;
+    setTimeout(()=>{
+      this.count = this.count+1;
+    },1000)
+
+
+  }
+
+  callMe(){
+    console.log('called');
   }
 }

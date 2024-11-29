@@ -6,10 +6,13 @@ import { AppComponent } from './feature/app/app.component';
 const routes: Routes = [{
   path:'',
   component:AppComponent
-},{
+},
+
+{
   path:'temp',
   component: GrandParentComponent
-}];
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

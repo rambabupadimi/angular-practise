@@ -14,23 +14,41 @@ export class AngularFormsComponent  implements OnInit{
 
   customForm!: FormGroup;
 
+  usersFormGroup!: FormGroup;
+
   constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
 
-    this.customForm = this.formBuilder.group({
-      students : this.formBuilder.array([
-        this.formBuilder.group({
-          name : new FormControl('',[Validators.required]),
-          email: new FormControl('',{validators: this.customEmailValidator, asyncValidators:this.customEmailAsyncValidator  })
-        })
-      ])
-    });
+    // this.customForm = this.formBuilder.group({
+    //   students : this.formBuilder.array([
+    //     this.formBuilder.group({
+    //       name : new FormControl('',[Validators.required]),
+    //       email: new FormControl('',{validators: this.customEmailValidator, asyncValidators:this.customEmailAsyncValidator  })
+    //     })
+    //   ])
+    // });
+
+    // this.customForm = this.formBuilder.group({
+    //   students: this.formBuilder.array([
+    //     this.formBuilder.group({
+    //       name : new FormControl('',[Validators.required]),
+    //        email: new FormControl('',{validators: this.customEmailValidator, asyncValidators:this.customEmailAsyncValidator  })
+    //     })
+    //   ])
+    // })
    console.log(this.customForm)
   }
 
   get studentsArray() : any{
     const formArray =  this.customForm.controls['students'] as FormArray;
+    console.log(formArray);
+    return formArray;
+  }
+
+
+  get usersFormArray() : any{
+    const formArray =  this.usersFormGroup.controls['users'] as FormArray;
     console.log(formArray);
     return formArray;
   }

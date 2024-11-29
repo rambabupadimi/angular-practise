@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UsersService } from '../users.service';
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss'
 })
-export class UsersListComponent implements OnInit {
+export class UsersListComponent implements OnInit, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   usersList:any = [];
   originalList:any = [];
@@ -16,8 +16,36 @@ export class UsersListComponent implements OnInit {
 
   constructor(private service: UsersService){}
 
+  ngDoCheck(): void {
+  console.log('temp - od check');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('temp - on changes');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('temp - on after content init');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('temp - on after content checked');
+  }
+
+  ngAfterViewInit(): void {
+      console.log('temp - on after view init');
+  }
+  
+  ngAfterViewChecked(): void {
+    console.log('temp - on after view checked');
+  }
+
+  ngOnDestroy(): void {
+    console.log('temp - on destroy');
+  }
+
   ngOnInit(): void {
-    console.log('init');
+    console.log('temp - init');
   }
 
   showList(){
@@ -53,10 +81,17 @@ export class UsersListComponent implements OnInit {
     this.count = 0;
   }
 
+  }
+
+  addRecord(){
+    this.usersList.push({id:1,name:'temp'})
+  }
+
+  updateRecord(){
 
   }
 
+  deleteRecord(){
 
-  
-
+  }
 }

@@ -1,0 +1,14 @@
+<p>template-outlet works!</p>
+
+
+<ng-template #green let-greeting let-message1="message" ><span> {{greeting}} -- {{message1}}</span></ng-template>
+
+
+
+@for (item of arr; track $index) {
+    <ng-container *ngTemplateOutlet="green;context: { $implicit: 'Hello', message:'there--'+$index }" >
+        Hello Ram - test not displayed
+    </ng-container> <br/>
+    
+}
+

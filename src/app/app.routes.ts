@@ -36,10 +36,10 @@ export const appRoutes: Route[] = [
         path:'life-cycle',
         loadChildren: () => import('./angular-life-cycles/angular-life-cycles.module').then(m=>m.AngularLifeCyclesModule)
     },
-    // {
-    //     path:'directives',
-    //     loadChildren: () => import('./angular-directives/angular-directives.module').then(m=>m.AngularDirectivesModule)
-    // },
+    {
+        path:'directives',
+        loadChildren: () => import('./angular-directives/angular-directives.module').then(m=>m.AngularDirectivesModule)
+    },
     {
         path:'pipes',
         loadChildren: () => import('./angular-pipes/angular-pipes.module').then(m=>m.AngularPipesModule)
@@ -52,16 +52,29 @@ export const appRoutes: Route[] = [
     //     path:'guards',
     //     loadChildren: () => import('./angular-guards/angular-guards.module').then(m=>m.AngularGuardsModule)
     // },
-    // {
-    //     path:'service',
-    //     loadChildren: () => import('./angular-services/angular-services.module').then(m=>m.AngularServicesModule)
-    // },
+    {
+        path:'service',
+        loadChildren: () => import('./angular-services/angular-services.module').then(m=>m.AngularServicesModule)
+    },
     {
         path:'rxjs',
         loadChildren: () => import('./angular-promise-observables/angular-promise-observables.module').then(m=>m.AngularPromiseObservablesModule)
     },
-    // {
-    //     path:'unit-testing',
-    //     loadChildren: () => import('./angular-unit-testing/angular-unit-testing-routing.module').then(m=>m.AngularUnitTestingRoutingModule)
-    // }
+    {
+        path:'unit-testing',
+        loadChildren: () => import('./angular-unit-testing/angular-unit-testing-routing.module').then(m=>m.AngularUnitTestingRoutingModule)
+    },
+    {
+        path:'dynamic-components',
+        loadChildren: () => import('./angular-dynamic-components/angular-dynamic-components.module').then(m=>m.AngularDynamicComponentsModule)
+    },
+    {
+        path:'deferable-view',
+        loadChildren: () => import('./deferable-views/deferable-views.module').then(m=>m.DeferableViewsModule)
+    },
+    {
+        path:'templates',
+        loadChildren: () => import('./angular-template/angular-template.module').then(m=>m.AngularTemplateModule)
+    }
+
 ];

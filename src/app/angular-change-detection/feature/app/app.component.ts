@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { MainComponent } from '../main/main.component';
 
@@ -7,7 +7,8 @@ import { MainComponent } from '../main/main.component';
   standalone: true,
   imports: [HeaderComponent,MainComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnChanges, OnInit, DoCheck {
 

@@ -1,0 +1,17 @@
+<p>dynamic-form works!</p>
+<div>
+        <form [formGroup]="customerForm">
+            <div formArrayName="customers">
+
+                <div *ngFor="let customer of customersArray.controls; let i=index" >
+                    <div [formGroupName] ="i">
+                           <input type="text" formControlName="firstName"/>
+                            <input type="text" formControlName="lastName"/>
+                   
+                        <button (click)="add(i)">Add</button>
+                        <button *ngIf="i>0" (click)="remove(i)"> Remove</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>

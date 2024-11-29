@@ -4,10 +4,13 @@ import {
   BehaviorSubject,
   Observable,
   Subject,
+  concatMap,
   debounceTime,
   distinctUntilChanged,
   endWith,
+  exhaustMap,
   filter,
+  forkJoin,
   from,
   fromEvent,
   groupBy,
@@ -20,10 +23,13 @@ import {
   scan,
   startWith,
   switchMap,
+  take,
   takeWhile,
+  throttleTime,
   toArray,
 } from 'rxjs';
 import { TempService } from '../temp.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-angular-rx-js',
@@ -36,19 +42,19 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
  
   @ViewChild('inputEl') input:ElementRef | undefined;
   
-  constructor(private tempService: TempService){}
+  constructor(private tempService: TempService, private http: HttpClient){}
 
   ngOnInit(): void {
 
     this.tempService.observable.subscribe({
       next:(result)=>{
-      //  console.log('room2',result);
+        console.log('room2',result);
       }
     })
 
     this.tempService.observable.subscribe({
       next:(result)=>{
-     //   console.log('room1',result);
+        console.log('room1',result);
       }
     })
 
@@ -66,7 +72,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
       }
     })
 
-   // this.tempService.subject.next(Math.random());
+    this.tempService.subject.next(Math.random());
 
     // this.operatorObservable();
     // this.operatorBehaviourSubject();
@@ -79,26 +85,30 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // this.operatorPairWise();
     // this.operatorTakeWhile();
     // this.operatorGroupBy();
-
-   // this.operatorSwitch();
-
+    // this.operatorSwitch();
+    // this.forkJOIN();
+    // this.apiCall();
+      
   }
 
 
 
+  replaySubject() {
+
+  }
+
+  asyncSubject() {
+    
+  }
+
   operatorSwitch() {
-
-
-
-
       const ob = fromEvent(this.input?.nativeElement,'keydown');
-
       // of([1,2,3]).subscribe((result) => console.log(result));  
       // from([1,2,3]).subscribe((result) => console.log(result));
-
       ob.pipe(
         // map((item) => { return item; }),
         //debounceTime(1000),
+      
         switchMap((item:any) => { return item; }))
         .subscribe((result:any) =>{
           console.log(result);
@@ -110,6 +120,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     this.operatorDebounceAndDistinctUntilChanged();
     this.operatorSwitch();
   }
+
   // observable
   operatorObservable() {
     const observable = new Observable((sub) => {
@@ -136,6 +147,11 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
   // behaviour subject
 
   operatorBehaviourSubject() {
+
+    // it will initial value and next emit values, in this case it will display
+    // ['red1', 'green1', 'yellow1']
+    // ['red2', 'green2', 'yellow2']
+
     const bSubject = new BehaviorSubject(['10']);
     bSubject.next(['red', 'green', 'yellow']);
     bSubject.next(['red1', 'green1', 'yellow1']);
@@ -150,6 +166,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
         console.log('completed');
       },
     });
+    
     bSubject.next(['red2', 'green2', 'yellow2']);
   }
 
@@ -294,4 +311,79 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
                 mergeMap((group:any) => {return group.pipe(toArray())})).subscribe((result)=> console.log(result))
   }
 
+
+
+  forkJOIN(){
+   const $forkJoin = forkJoin([
+      this.http.get('https://jsonplaceholder.typicode.com/todos/1'),
+      this.http.get('https://jsonplaceholder.typicode.com/todos3/2'),
+      this.http.get('https://jsonplaceholder.typicode.com/todos/3'),
+   ]);
+ 
+   $forkJoin.subscribe((data:any)=>{
+     console.log('forkjoin data', data); // forkJoin will return last emitted values of each observable i.e with id equal to 1 and 2.
+   })
+  }
+
+
+  apiCall(){
+    
+   // mergeMap
+    // let postIds = interval(10).pipe(
+    //   filter((item) => item>0),
+    //   take(5) 
+    // )
+    // console.log(postIds);
+    // postIds.pipe(
+    //   mergeMap((item) => {
+    //     return this.http.get(`https://jsonplaceholder.typicode.com/todos/${item}`)
+    //   })
+    // ).subscribe((result) =>{
+    //   console.log(result);
+    // })
+
+    // concatMap
+    // let postIds = interval(10).pipe(
+    //   filter((item) => item>0),
+    //   take(5) 
+    // )
+    // console.log(postIds);
+    // postIds.pipe(
+    //   concatMap((item) => {
+    //     return this.http.get(`https://jsonplaceholder.typicode.com/todos/${item}`)
+    //   })
+    // ).subscribe((result) =>{
+    //   console.log(result);
+    // })
+
+    //switchMap
+    // let postIds = interval(10).pipe(
+    //   filter((item) => item>0),
+    //   take(5) 
+    // )
+    // console.log(postIds);
+    // postIds.pipe(
+    //   switchMap((item) => {
+    //     return this.http.get(`https://jsonplaceholder.typicode.com/todos/${item}`)
+    //   })
+    // ).subscribe((result) =>{
+    //   console.log(result);
+    // })
+
+    // exhaustmap
+    // let postIds = interval(10).pipe(
+    //   filter((item) => item>0),
+    //   take(5) 
+    // )
+    // console.log(postIds);
+    // postIds.pipe(
+    //   exhaustMap((item) => {
+    //     return this.http.get(`https://jsonplaceholder.typicode.com/todos/${item}`)
+    //   })
+    // ).subscribe((result) =>{
+    //   console.log(result);
+    // })
+  }
+
+  
 }

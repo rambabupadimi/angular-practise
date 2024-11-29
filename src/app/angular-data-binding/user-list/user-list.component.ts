@@ -55,4 +55,8 @@ export class UserListComponent implements OnInit , AfterViewInit{
     console.log(event.target.value);
     this.loadPosts(event.target.value);
   }
+
+  trackByFun (item:any) {
+    return item.id;
+  }
 }

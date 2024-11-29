@@ -9,9 +9,9 @@ export class TempService {
   constructor() { }
 
    observable = new Observable(sub =>{
-    setInterval(()=>{
+   // setInterval(()=>{
        sub.next(Math.random());
-    },2000);
+   // },2000);
   });
 
   subject = new Subject();
