@@ -22,5 +22,7 @@ import { ClickEmitDirective } from './click-emit.directive';
   ]
 })
 export class StyleDirective {
+
   constructor() { }
+
 }
