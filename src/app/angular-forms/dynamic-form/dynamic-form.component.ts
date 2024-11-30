@@ -1,19 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+// import {MatFormFieldModule} from '@angular/material/form-field';
+// import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-dynamic-form',
   standalone: true,
-  imports: [ReactiveFormsModule,MatFormFieldModule, CommonModule, MatInputModule],
+  imports: [
+    ReactiveFormsModule,
+    //MatFormFieldModule,
+     CommonModule,
+    // MatInputModule
+    ],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.scss'
 })
 export class DynamicFormComponent  implements OnInit{
 
-  
+
     customerForm! : FormGroup;
     constructor(private fb: FormBuilder){}
 
@@ -23,11 +28,11 @@ export class DynamicFormComponent  implements OnInit{
           'customers': this.fb.array([
             this.fb.group({
               firstName: new FormControl(),
-              lastName: new FormControl() 
+              lastName: new FormControl()
             })
           ])
         }
-      ) 
+      )
     }
 
     get customersArray() {
@@ -38,7 +43,7 @@ export class DynamicFormComponent  implements OnInit{
       (this.customerForm.controls['customers'] as FormArray).push(
         this.fb.group({
           firstName: new FormControl(),
-          lastName: new FormControl() 
+          lastName: new FormControl()
         })
       )
     }

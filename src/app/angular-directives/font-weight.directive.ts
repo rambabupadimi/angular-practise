@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } fro
 })
 export class FontWeightDirective implements OnChanges{
 
-  @Input() weight!: number;
+  @Input() weight = 900;
 
   constructor(private element: ElementRef, private render2: Renderer2) { }
 
