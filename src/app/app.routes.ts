@@ -75,6 +75,10 @@ export const appRoutes: Route[] = [
     {
         path:'templates',
         loadChildren: () => import('./angular-template/angular-template.module').then(m=>m.AngularTemplateModule)
+    },
+    {
+      path:'css',
+      loadComponent : () => import('./css-best-practise/css-best-practise.component').then(m=>m.CssBestPractiseComponent)
     }
 
 ];

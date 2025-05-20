@@ -1,0 +1,39 @@
+
+/** css styles
+never include more than one child element in class names **/
+
+// .photo {  color:red;}
+// .photo__img {color:red;}
+// .photo__caption {color:red;}
+// .photo__quote {color:red;}
+
+/** modified clas css **/
+
+.photo { color:red; }
+.photo__img { color: red;}
+.photo__img--framed {color: red}
+.photo__caption {}
+.photo__caption--large {}
+
+
+// .nav {}
+// .nav__list {}
+// .nav__item {}
+// .nav__link {}
+// .nav__link--active {}
+
+.nav {
+  background-color: gray;
+  &__list {
+    list-style-type: disc;
+  }
+  &__item {
+    color: green($color: #000000);
+  }
+  &__link {
+    text-transform: uppercase;
+    &--active {
+      color: blue;
+    }
+  }
+}
