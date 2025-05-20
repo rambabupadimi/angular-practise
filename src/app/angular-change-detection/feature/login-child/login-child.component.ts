@@ -1,11 +1,10 @@
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-login-child',
-  standalone: true,
-  imports: [],
-  templateUrl: './login-child.component.html',
-  styleUrl: './login-child.component.scss'
+    selector: 'app-login-child',
+    imports: [],
+    templateUrl: './login-child.component.html',
+    styleUrl: './login-child.component.scss'
 })
 export class LoginChildComponent implements  OnChanges, OnInit, DoCheck {
 

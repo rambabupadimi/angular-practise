@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-child2',
-  standalone: true,
-  imports: [],
-  templateUrl: './child2.component.html',
-  styleUrl: './child2.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-child2',
+    imports: [],
+    templateUrl: './child2.component.html',
+    styleUrl: './child2.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Child2Component implements OnInit, OnChanges, DoCheck {
 

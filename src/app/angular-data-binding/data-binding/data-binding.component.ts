@@ -3,11 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { SizerComponent } from '../sizer/sizer.component';
 
 @Component({
-  selector: 'app-data-binding',
-  standalone: true,
-  imports: [FormsModule, SizerComponent],
-  templateUrl: './data-binding.component.html',
-  styleUrl: './data-binding.component.scss'
+    selector: 'app-data-binding',
+    imports: [FormsModule, SizerComponent],
+    templateUrl: './data-binding.component.html',
+    styleUrl: './data-binding.component.scss'
 })
 export class DataBindingComponent {
 

@@ -6,29 +6,25 @@ import { LoggerServiceService } from '../logger-service.service';
 import { ClientLoggerService } from '../client-logger.service';
 
 @Component({
-  selector: 'app-angular-service',
-  standalone: true,
-  imports: [CommonModule, AngularServiceC1Component, AngularServiceC2Component],
-  providers:[
-    // LoggerServiceService, // short notation
-    // {
-    //   provide:LoggerServiceService,
-    //   useClass: LoggerServiceService
-    // }, // extended notation
-
-    {
-      provide: LoggerServiceService, // ClientLoggerService instance will use in this scenario
-      useClass: ClientLoggerService
-    },
-    {
-      provide: ClientLoggerService,
-      useExisting: LoggerServiceService
-    }
-
-  ],
-  templateUrl: './angular-service.component.html',
-  styleUrl: './angular-service.component.css',
-  
+    selector: 'app-angular-service',
+    imports: [CommonModule, AngularServiceC1Component, AngularServiceC2Component],
+    providers: [
+        // LoggerServiceService, // short notation
+        // {
+        //   provide:LoggerServiceService,
+        //   useClass: LoggerServiceService
+        // }, // extended notation
+        {
+            provide: LoggerServiceService, // ClientLoggerService instance will use in this scenario
+            useClass: ClientLoggerService
+        },
+        {
+            provide: ClientLoggerService,
+            useExisting: LoggerServiceService
+        }
+    ],
+    templateUrl: './angular-service.component.html',
+    styleUrl: './angular-service.component.css'
 })
 export class AngularServiceComponent {
 

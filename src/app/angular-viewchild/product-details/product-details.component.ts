@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from '../product-list/product-list.component';
 
 @Component({
-  selector: 'app-product-details',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css',
+    selector: 'app-product-details',
+    imports: [CommonModule],
+    templateUrl: './product-details.component.html',
+    styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit, OnChanges{
   

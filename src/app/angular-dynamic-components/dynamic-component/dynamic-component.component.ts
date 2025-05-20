@@ -3,11 +3,10 @@ import { DynamicComponent1Component } from '../dynamic-component1/dynamic-compon
 import { DynamicComponent2Component } from '../dynamic-component2/dynamic-component2.component';
 
 @Component({
-  selector: 'app-dynamic-component',
-  standalone: true,
-  imports: [],
-  templateUrl: './dynamic-component.component.html',
-  styleUrl: './dynamic-component.component.scss'
+    selector: 'app-dynamic-component',
+    imports: [],
+    templateUrl: './dynamic-component.component.html',
+    styleUrl: './dynamic-component.component.scss'
 })
 export class DynamicComponentComponent {
 

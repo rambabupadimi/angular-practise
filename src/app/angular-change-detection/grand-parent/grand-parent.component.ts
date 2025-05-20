@@ -3,12 +3,11 @@ import { ParentComponent } from "../parent/parent.component";
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-grand-parent',
-  standalone: true,
-  imports: [ParentComponent,CommonModule],
-  templateUrl: './grand-parent.component.html',
-  styleUrl: './grand-parent.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-grand-parent',
+    imports: [ParentComponent, CommonModule],
+    templateUrl: './grand-parent.component.html',
+    styleUrl: './grand-parent.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GrandParentComponent  implements OnInit, OnChanges, DoCheck{
 

@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { AngularServiceService } from '../angular-service.service';
 
 @Component({
-  selector: 'app-angular-service-c2',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './angular-service-c2.component.html',
-  styleUrl: './angular-service-c2.component.scss',
-   providers:[AngularServiceService]
+    selector: 'app-angular-service-c2',
+    imports: [CommonModule],
+    templateUrl: './angular-service-c2.component.html',
+    styleUrl: './angular-service-c2.component.scss',
+    providers: [AngularServiceService]
 })
 export class AngularServiceC2Component {
   

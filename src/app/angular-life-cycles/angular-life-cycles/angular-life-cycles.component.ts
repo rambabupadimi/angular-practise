@@ -2,11 +2,10 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 import { ChildComponent } from '../child/child.component';
 
 @Component({
-  selector: 'app-angular-life-cycles',
-  standalone: true,
-  imports: [ChildComponent],
-  templateUrl: './angular-life-cycles.component.html',
-  styleUrl: './angular-life-cycles.component.scss'
+    selector: 'app-angular-life-cycles',
+    imports: [ChildComponent],
+    templateUrl: './angular-life-cycles.component.html',
+    styleUrl: './angular-life-cycles.component.scss'
 })
 export class AngularLifeCyclesComponent implements  OnInit, OnChanges, OnDestroy, DoCheck,AfterViewInit, AfterViewChecked, AfterContentInit,AfterContentChecked {
 

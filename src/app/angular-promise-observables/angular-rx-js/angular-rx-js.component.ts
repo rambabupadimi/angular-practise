@@ -32,11 +32,10 @@ import { TempService } from '../temp.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-angular-rx-js',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './angular-rx-js.component.html',
-  styleUrl: './angular-rx-js.component.css',
+    selector: 'app-angular-rx-js',
+    imports: [CommonModule],
+    templateUrl: './angular-rx-js.component.html',
+    styleUrl: './angular-rx-js.component.css'
 })
 export class AngularRxJsComponent implements OnInit, AfterViewInit {
  

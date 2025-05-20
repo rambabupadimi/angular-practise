@@ -4,11 +4,10 @@ import { AbstractControl, AsyncValidator, FormArray, FormBuilder, FormControl, F
 import { Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'app-angular-forms',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './angular-forms.component.html',
-  styleUrl: './angular-forms.component.scss'
+    selector: 'app-angular-forms',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './angular-forms.component.html',
+    styleUrl: './angular-forms.component.scss'
 })
 export class AngularFormsComponent  implements OnInit{
 

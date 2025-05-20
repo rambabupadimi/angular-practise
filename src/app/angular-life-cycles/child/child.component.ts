@@ -1,11 +1,10 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-child',
-  standalone: true,
-  imports: [],
-  templateUrl: './child.component.html',
-  styleUrl: './child.component.scss'
+    selector: 'app-child',
+    imports: [],
+    templateUrl: './child.component.html',
+    styleUrl: './child.component.scss'
 })
 export class ChildComponent implements OnInit, OnChanges, AfterContentInit,AfterContentChecked,  AfterViewInit, AfterViewChecked, OnDestroy, DoCheck {
  

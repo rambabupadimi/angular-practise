@@ -5,11 +5,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 @Component({
-  selector: 'app-dynamic-form',
-  standalone: true,
-  imports: [ReactiveFormsModule,MatFormFieldModule, CommonModule, MatInputModule],
-  templateUrl: './dynamic-form.component.html',
-  styleUrl: './dynamic-form.component.scss'
+    selector: 'app-dynamic-form',
+    imports: [ReactiveFormsModule, MatFormFieldModule, CommonModule, MatInputModule],
+    templateUrl: './dynamic-form.component.html',
+    styleUrl: './dynamic-form.component.scss'
 })
 export class DynamicFormComponent  implements OnInit{
 

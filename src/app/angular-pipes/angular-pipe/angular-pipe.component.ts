@@ -4,11 +4,10 @@ import { of } from 'rxjs';
 import { AngularCustomPipePipe } from '../angular-custom-pipe.pipe';
 
 @Component({
-  selector: 'app-angular-pipe',
-  standalone: true,
-  imports: [CommonModule, AngularCustomPipePipe],
-  templateUrl: './angular-pipe.component.html',
-  styleUrl: './angular-pipe.component.css',
+    selector: 'app-angular-pipe',
+    imports: [CommonModule, AngularCustomPipePipe],
+    templateUrl: './angular-pipe.component.html',
+    styleUrl: './angular-pipe.component.css'
 })
 export class AngularPipeComponent {
 

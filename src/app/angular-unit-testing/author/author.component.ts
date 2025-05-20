@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthorService } from '../author.service';
 
 @Component({
-  selector: 'app-author',
-  standalone: true,
-  imports: [],
-  templateUrl: './author.component.html',
-  styleUrl: './author.component.scss'
+    selector: 'app-author',
+    imports: [],
+    templateUrl: './author.component.html',
+    styleUrl: './author.component.scss'
 })
 export class AuthorComponent implements OnInit {
 

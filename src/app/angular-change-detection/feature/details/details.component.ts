@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-details',
-  standalone: true,
-  imports: [],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.scss',
-  changeDetection: ChangeDetectionStrategy.Default
+    selector: 'app-details',
+    imports: [],
+    templateUrl: './details.component.html',
+    styleUrl: './details.component.scss',
+    changeDetection: ChangeDetectionStrategy.Default
 })
   export class DetailsComponent implements OnChanges, OnInit, DoCheck {
 

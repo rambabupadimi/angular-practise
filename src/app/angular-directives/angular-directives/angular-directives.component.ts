@@ -4,11 +4,10 @@ import { AngularCustomDirectiveDirective } from '../angular-custom-directive.dir
 import { StyleDirective } from '../style.directive';
 
 @Component({
-  selector: 'app-angular-directives',
-  standalone: true,
-  imports: [CommonModule, AngularCustomDirectiveDirective,StyleDirective],
-  templateUrl: './angular-directives.component.html',
-  styleUrl: './angular-directives.component.scss',
+    selector: 'app-angular-directives',
+    imports: [CommonModule, AngularCustomDirectiveDirective, StyleDirective],
+    templateUrl: './angular-directives.component.html',
+    styleUrl: './angular-directives.component.scss'
 })
 export class AngularDirectivesComponent {
 

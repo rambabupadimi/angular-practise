@@ -8,11 +8,10 @@ import { AppCartItemComponent } from './app-cart-item/app-cart-item.component';
 import { AppTemplateComponent } from './app-template/app-template.component';
 
 @Component({
-  selector: 'app-angular-view-child-demo',
-  standalone: true,
-  imports: [CommonModule, ProductListComponent, ProductDetailsComponent,ProductFormComponent, AppCartComponent, AppTemplateComponent],
-  templateUrl: './angular-view-child-demo.component.html',
-  styleUrl: './angular-view-child-demo.component.css',
+    selector: 'app-angular-view-child-demo',
+    imports: [CommonModule, ProductListComponent, ProductDetailsComponent, ProductFormComponent, AppCartComponent, AppTemplateComponent],
+    templateUrl: './angular-view-child-demo.component.html',
+    styleUrl: './angular-view-child-demo.component.css'
 })
 export class AngularViewChildDemoComponent implements OnInit, AfterViewInit {
 

@@ -5,11 +5,10 @@ import { DynamicTableComponent } from '@rambabupadimi123/dynamic-table';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-custom-cache',
-  standalone: true,
-  imports: [ DynamicTableComponent,AsyncPipe],
-  templateUrl: './custom-cache.component.html',
-  styleUrl: './custom-cache.component.scss'
+    selector: 'app-custom-cache',
+    imports: [DynamicTableComponent, AsyncPipe],
+    templateUrl: './custom-cache.component.html',
+    styleUrl: './custom-cache.component.scss'
 })
 export class CustomCacheComponent implements OnInit {
 

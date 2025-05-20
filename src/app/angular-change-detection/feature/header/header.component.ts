@@ -3,11 +3,10 @@ import { SearchComponent } from '../search/search.component';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [SearchComponent, ButtonComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [SearchComponent, ButtonComponent],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnChanges, OnInit, DoCheck  {
 

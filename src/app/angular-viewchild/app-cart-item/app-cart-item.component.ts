@@ -2,11 +2,10 @@ import { AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, On
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-app-cart-item',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './app-cart-item.component.html',
-  styleUrl: './app-cart-item.component.css',
+    selector: 'app-app-cart-item',
+    imports: [CommonModule],
+    templateUrl: './app-cart-item.component.html',
+    styleUrl: './app-cart-item.component.css'
 })
 export class AppCartItemComponent  {
 

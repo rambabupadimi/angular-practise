@@ -2,11 +2,10 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 import { UsersService } from '../users.service';
 
 @Component({
-  selector: 'app-users-list',
-  standalone: true,
-  imports: [],
-  templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.scss'
+    selector: 'app-users-list',
+    imports: [],
+    templateUrl: './users-list.component.html',
+    styleUrl: './users-list.component.scss'
 })
 export class UsersListComponent implements OnInit, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 

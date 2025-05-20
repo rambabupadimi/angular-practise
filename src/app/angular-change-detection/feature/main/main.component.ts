@@ -3,12 +3,11 @@ import { DetailsComponent } from "../details/details.component";
 import { LoginComponent } from '../login/login.component';
 
 @Component({
-  selector: 'app-main',
-  standalone: true,
-  imports: [LoginComponent, DetailsComponent],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-main',
+    imports: [LoginComponent, DetailsComponent],
+    templateUrl: './main.component.html',
+    styleUrl: './main.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent  implements  OnChanges, OnInit, DoCheck {
 
