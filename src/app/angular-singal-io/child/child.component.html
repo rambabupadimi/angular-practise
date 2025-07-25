@@ -1,0 +1,13 @@
+<p>child works!</p>
+
+<button (click)="addItem()">AddItem</button>
+@for (item of list; track $index) {
+  <p>{{ item }}</p>
+}
+
+<input type="text" [(ngModel)]="searchText" placeholder="Search items" />
+<!-- Ensure FormsModule is imported in the module -->
+
+<div *ngFor="let item of filteredList">
+  <p >{{ item }}</p>
+</div>

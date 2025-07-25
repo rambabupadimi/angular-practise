@@ -5,7 +5,7 @@ export const appRoutes: Route[] = [
 
 
     {
-        path:'demo',
+        path:'data-binding',
         loadChildren: () => import('./angular-data-binding/angular-data-binding.module').then(m=>m.AngularDataBindingModule)
     },
     {
@@ -79,6 +79,21 @@ export const appRoutes: Route[] = [
     {
       path:'css',
       loadComponent : () => import('./css-best-practise/css-best-practise.component').then(m=>m.CssBestPractiseComponent)
+    },
+    {
+      path:'signal',
+      loadComponent : () => import('./angular-signal/basic-signal/basic-signal.component').then(m=>m.BasicSignalComponent)
+    },
+    {
+      path:'linked-signal',
+      loadComponent : () => import('./angular-linked-signal/angular-linked-signal/angular-linked-signal.component').then(m=>m.AngularLinkedSignalComponent)
+    },
+    {
+      path:'angular-signal-io',
+      loadComponent : () => import('./angular-singal-io/parent/parent.component').then(m=>m.ParentComponent)
+    },
+    {
+        path:'control-flow',
+        loadComponent: ()=> import('./angular-control-flows/angular-control-flows.component').then(m=>m.AngularControlFlowsComponent)
     }
-
 ];

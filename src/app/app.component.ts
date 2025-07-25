@@ -11,8 +11,9 @@ export class AppComponent  implements OnInit {
 
 
   title = 'angular-practise';
-
   ngOnInit(): void {
-    console.log('called app component');
+    console.log('called');
   }
+
+
 }

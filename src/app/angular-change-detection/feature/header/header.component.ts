@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { ButtonComponent } from '../button/button.component';
 
@@ -8,7 +8,19 @@ import { ButtonComponent } from '../button/button.component';
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnChanges, OnInit, DoCheck  {
+export class HeaderComponent implements OnChanges, OnInit, DoCheck,AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked  {
+  ngAfterViewInit(): void {
+    console.log('header- aferview init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('header- after view checked');
+  }
+  ngAfterContentInit(): void {
+    console.log('header- after content init');
+  }
+  ngAfterContentChecked(): void {
+    console.log('header- after conent checked');
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('header- on changes');
@@ -19,5 +31,5 @@ export class HeaderComponent implements OnChanges, OnInit, DoCheck  {
   ngDoCheck(): void {
     console.log('header- on docheck');
   }
-  
+
 }

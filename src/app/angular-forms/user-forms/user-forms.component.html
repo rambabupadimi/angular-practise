@@ -1,0 +1,13 @@
+<p>user-forms works!</p>
+<div [formGroup] ="userFormGroup">
+    <div formArrayName="users">
+        <div *ngFor="let user of usersArray.controls; let i=index">
+            <div [formGroupName]="i">
+                <input type="text" formControlName="firstName" placeholder="First Name"/>
+                <input type="text" formControlName="lastName" placeholder="Last Name"/>
+                <button (click)="addUser(i)">Add User</button>
+                <button *ngIf="i > 0" (click)="removeUser(i)">Remove User</button>
+            </div>
+        </div>
+    </div>
+</div>

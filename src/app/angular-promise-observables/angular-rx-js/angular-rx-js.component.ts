@@ -38,9 +38,9 @@ import { HttpClient } from '@angular/common/http';
     styleUrl: './angular-rx-js.component.css'
 })
 export class AngularRxJsComponent implements OnInit, AfterViewInit {
- 
+
   @ViewChild('inputEl') input:ElementRef | undefined;
-  
+
   constructor(private tempService: TempService, private http: HttpClient){}
 
   ngOnInit(): void {
@@ -58,7 +58,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     })
 
     // subject
-    
+
     this.tempService.subject.subscribe({
       next:(result)=>{
         console.log('subject1 - room1',result);
@@ -74,7 +74,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     this.tempService.subject.next(Math.random());
 
     // this.operatorObservable();
-    // this.operatorBehaviourSubject();
+    this.operatorBehaviourSubject();
     // this.operatorSubject();
     // this.operatorFilter();
     // this.operatorReduce();
@@ -84,10 +84,10 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // this.operatorPairWise();
     // this.operatorTakeWhile();
     // this.operatorGroupBy();
-    // this.operatorSwitch();
+    this.operatorSwitch();
     // this.forkJOIN();
     // this.apiCall();
-      
+
   }
 
 
@@ -97,21 +97,29 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
   }
 
   asyncSubject() {
-    
+
   }
 
   operatorSwitch() {
-      const ob = fromEvent(this.input?.nativeElement,'keydown');
-      // of([1,2,3]).subscribe((result) => console.log(result));  
+      //const ob = fromEvent(this.input?.nativeElement,'keydown');
+      // of([1,2,3]).subscribe((result) => console.log(result));
       // from([1,2,3]).subscribe((result) => console.log(result));
-      ob.pipe(
-        // map((item) => { return item; }),
-        //debounceTime(1000),
-      
-        switchMap((item:any) => { return item; }))
-        .subscribe((result:any) =>{
-          console.log(result);
+      // ob.pipe(
+      //   // map((item) => { return item; }),
+      //   //debounceTime(1000),
+
+      //   switchMap((item:any) => { return item; }))
+      //   .subscribe((result:any) =>{
+      //     console.log(result);
+      //   })
+
+
+        from([1, 2, 3]).pipe(
+          switchMap(id => of(id))
+        ).subscribe((result) => {
+          console.log('result--',result);
         })
+
   }
 
 
@@ -165,7 +173,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
         console.log('completed');
       },
     });
-    
+
     bSubject.next(['red2', 'green2', 'yellow2']);
   }
 
@@ -209,7 +217,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
   // fromEvent returns observable
 
   operatorDebounceAndDistinctUntilChanged() {
-  
+
     const searchObservable = fromEvent(this.input?.nativeElement, 'keyup');
 
 
@@ -232,16 +240,16 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
 
 
   operatorReduce(){
-       of(1,2,3,4).pipe(reduce((total:any,value) =>{ 
-        
+       of(1,2,3,4).pipe(reduce((total:any,value) =>{
+
         console.log('total --'+total, value);
         return total+value })).subscribe((result) =>{console.log(result)})
   }
 
   operatorScan(){
-    of(1,2,3,4).pipe(scan((total:any,value,index) =>{ 
+    of(1,2,3,4).pipe(scan((total:any,value,index) =>{
       console.log('index --',index,total,value);
-    return total+value 
+    return total+value
     })).subscribe((result) =>{console.log(result)})
   }
 
@@ -318,7 +326,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
       this.http.get('https://jsonplaceholder.typicode.com/todos3/2'),
       this.http.get('https://jsonplaceholder.typicode.com/todos/3'),
    ]);
- 
+
    $forkJoin.subscribe((data:any)=>{
      console.log('forkjoin data', data); // forkJoin will return last emitted values of each observable i.e with id equal to 1 and 2.
    })
@@ -326,11 +334,11 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
 
 
   apiCall(){
-    
+
    // mergeMap
     // let postIds = interval(10).pipe(
     //   filter((item) => item>0),
-    //   take(5) 
+    //   take(5)
     // )
     // console.log(postIds);
     // postIds.pipe(
@@ -344,7 +352,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // concatMap
     // let postIds = interval(10).pipe(
     //   filter((item) => item>0),
-    //   take(5) 
+    //   take(5)
     // )
     // console.log(postIds);
     // postIds.pipe(
@@ -358,7 +366,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     //switchMap
     // let postIds = interval(10).pipe(
     //   filter((item) => item>0),
-    //   take(5) 
+    //   take(5)
     // )
     // console.log(postIds);
     // postIds.pipe(
@@ -372,7 +380,7 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // exhaustmap
     // let postIds = interval(10).pipe(
     //   filter((item) => item>0),
-    //   take(5) 
+    //   take(5)
     // )
     // console.log(postIds);
     // postIds.pipe(
@@ -384,5 +392,5 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // })
   }
 
-  
+
 }

@@ -1,0 +1,10 @@
+<p>angular-control-flows works!</p>
+<ng-container *ngIf="true; then trueBlock else falseBlock "
+></ng-container>
+
+<ng-template #trueBlock> True Block</ng-template>
+<ng-template #falseBlock>Else Block</ng-template>
+
+<ng-container *ngFor="let user of users; let i=index;">
+    {{user.name}}
+</ng-container>
