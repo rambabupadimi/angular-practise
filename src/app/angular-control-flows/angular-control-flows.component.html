@@ -8,3 +8,25 @@
 <ng-container *ngFor="let user of users; let i=index;">
     {{user.name}}
 </ng-container>
+
+
+
+@if (true) {
+  <p>True block</p>
+} @else {
+  <p>False block</p>
+}
+
+@for (item of users; track $index) {
+  <p>{{item.name}}</p>
+}
+
+@switch (theme) {
+  @case ('light') {
+    <p>Light Theme</p>
+  } @case ('dark') {
+    <p>Dark Theme</p>
+  } @default {
+    <p>Default Theme</p>
+  }
+}

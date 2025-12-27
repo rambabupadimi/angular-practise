@@ -4,6 +4,9 @@ import {
   BehaviorSubject,
   Observable,
   Subject,
+  combineLatest,
+  combineLatestAll,
+  combineLatestWith,
   concatMap,
   debounceTime,
   distinctUntilChanged,
@@ -30,16 +33,20 @@ import {
 } from 'rxjs';
 import { TempService } from '../temp.service';
 import { HttpClient } from '@angular/common/http';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-angular-rx-js',
-    imports: [CommonModule],
+    imports: [CommonModule,ReactiveFormsModule],
     templateUrl: './angular-rx-js.component.html',
     styleUrl: './angular-rx-js.component.css'
 })
 export class AngularRxJsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('inputEl') input:ElementRef | undefined;
+
+  searchControl:any = new FormControl();
+  dropDownControl:any = new FormControl();
 
   constructor(private tempService: TempService, private http: HttpClient){}
 
@@ -86,7 +93,18 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
     // this.operatorGroupBy();
     this.operatorSwitch();
     // this.forkJOIN();
-    // this.apiCall();
+   this.apiCall();
+
+   combineLatest([this.searchControl.valueChanges.pipe(startWith(''))]).subscribe((result) =>{
+    console.log(result);
+   })
+
+   combineLatest([
+    this.searchControl.valueChanges.pipe(startWith('')),
+    this.dropDownControl.valueChanges.pipe(startWith(''))
+   ]).subscribe((result) => {
+    console.log(result);
+   })
 
   }
 
@@ -334,6 +352,18 @@ export class AngularRxJsComponent implements OnInit, AfterViewInit {
 
 
   apiCall(){
+
+
+
+    const todoIds = from([1,2,3,4]);
+    todoIds.pipe(
+      exhaustMap((item) => this.http.get(`https://jsonplaceholder.typicode.com/todos/${item}`)))
+      .subscribe((result) => {
+          console.log(result);
+    })
+
+
+
 
    // mergeMap
     // let postIds = interval(10).pipe(

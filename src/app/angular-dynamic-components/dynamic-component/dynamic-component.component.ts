@@ -10,7 +10,7 @@ import { DynamicComponent2Component } from '../dynamic-component2/dynamic-compon
 })
 export class DynamicComponentComponent {
 
-  @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
+  @ViewChild('container') container!: ViewContainerRef;
 
   createComponent(){
     this.container.clear();

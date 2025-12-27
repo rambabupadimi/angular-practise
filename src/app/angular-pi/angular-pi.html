@@ -1,0 +1,32 @@
+<p>angular-pi works!</p>
+
+
+<ng-container *ngFor="let item of todoList$ | async; trackBy:postTrack ">
+  {{item.id}} -- {{item.title}}
+  <p> <button [disabled]="item.completed" (click) ="updateState(item)">Update</button> </p>
+  <br/>
+</ng-container>
+
+<br/><br/>
+
+<!-- <ng-container *ngFor="let item of posts; trackBy:postTrack ">
+  {{item.title}} <br/>
+</ng-container> -->
+
+<ng-container *ngFor="let item of postSignal() | angularPiPipe : 50:[100]  ; trackBy:postTrack ">
+  {{item.title}} <br/>
+</ng-container>
+
+Search: <input #inputElement type="text"  name="message" />
+<br/><br/>
+
+<app-angular-pi-child
+[messageInputSignal]="searchSignal()+'temp'+getMe()"
+[message]="searchItem+'hei'+getMe()"
+(hitMe)="recieveBack($event)"
+></app-angular-pi-child>
+
+
+
+<button (click)="incCounter()">INC</button>
+{{this.count}}

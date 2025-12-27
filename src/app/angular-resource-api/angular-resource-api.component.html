@@ -1,1 +1,20 @@
-<p>angular-resource-api works!</p>
+
+@if (result.status() ==='loading') {
+  <p>Loading...</p>
+}
+
+@if (result.status() ==='error') {
+  <p>Error..{{result.error() | json}}</p>
+}
+
+@if (result.status() ==='resolved') {
+  <p>Id : {{result.value().id}}</p>
+  <p>Title : {{result.value().title}}</p>
+  <p>Body : {{result.value().body}}</p>
+
+}
+<button (click) ="prev()">Prev</button>
+<button (click) ="next()">Next</button>
+<br/>
+<button (click)="result.reload()">Re-Load</button>
+

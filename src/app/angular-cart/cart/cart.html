@@ -1,0 +1,15 @@
+<p>cart works!</p>
+
+
+  <div *ngFor="let item of cartList$ | async" style="border: 1px solid gray; margin: 12px; display: flex; width: 200px;gap:15px">
+    <p> {{item.name}}</p> <br/>
+    <p> {{item.price}}</p> <br/>
+    <p> {{item.quantity}}</p>
+    <button (click)="addToCart(item.productId)">Add</button>
+        <button (click)="deleteFromCart(item.productId)">Remove</button>
+
+  </div>
+
+  <section>
+    <p>Cart Total {{ cartTotal$ | async}}</p>
+  </section>

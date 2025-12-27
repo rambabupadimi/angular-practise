@@ -1,0 +1,20 @@
+<app-card-reusable
+  [title]="'Amazon'"
+  [htmlElement]="amazonTemplate"
+></app-card-reusable>
+<app-card-reusable
+  [title]="'Flipkart'"
+  [htmlElement]="flipkartTemplate"
+></app-card-reusable>
+
+<ng-template #amazonTemplate>
+  <h1>It is amazon template</h1>
+  <button>Amazon</button>
+</ng-template>
+
+<ng-template #flipkartTemplate>
+  <h1>It is flipkart template</h1>
+  <input type="text" placeholder="Enter Flipkart details" />
+  <textarea placeholder="Enter Flipkart description"></textarea>
+  <button>Flipkart</button>
+</ng-template>

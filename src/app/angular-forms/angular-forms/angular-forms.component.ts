@@ -1,82 +1,81 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { AbstractControl, AsyncValidator, FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
+import { AlbumService } from '../../angular-posts/state/albums.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+interface SignUpForm {
+  name: FormControl<string | null>;
+  username: FormControl<string | null>;
+  password: FormControl<string | null>;
+}
+
+interface User {
+  name: string,
+  age: number,
+  dob: Date,
+  address: string
+}
 
 @Component({
-    selector: 'app-angular-forms',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './angular-forms.component.html',
-    styleUrl: './angular-forms.component.scss'
+  selector: 'app-angular-forms',
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './angular-forms.component.html',
+  styleUrl: './angular-forms.component.scss'
 })
-export class AngularFormsComponent  implements OnInit{
+export class AngularFormsComponent implements OnInit {
 
-  customForm!: FormGroup;
+  loginForm: any;
+  albums: any = [];
+  constructor(private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.loginForm = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)])
+    })
+  }
 
-  usersFormGroup!: FormGroup;
+  signupForm = new FormGroup<SignUpForm>({
+    name: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl('')
+  })
 
-  constructor(private formBuilder: FormBuilder){}
+  userInitalState = signal<User>({
+    name: '',
+    age: 0,
+    dob: new Date(),
+    address: ''
+  })
+
+
+
+
 
   ngOnInit(): void {
 
-    // this.customForm = this.formBuilder.group({
-    //   students : this.formBuilder.array([
-    //     this.formBuilder.group({
-    //       name : new FormControl('',[Validators.required]),
-    //       email: new FormControl('',{validators: this.customEmailValidator, asyncValidators:this.customEmailAsyncValidator  })
-    //     })
-    //   ])
-    // });
-
-    // this.customForm = this.formBuilder.group({
-    //   students: this.formBuilder.array([
-    //     this.formBuilder.group({
-    //       name : new FormControl('',[Validators.required]),
-    //        email: new FormControl('',{validators: this.customEmailValidator, asyncValidators:this.customEmailAsyncValidator  })
-    //     })
-    //   ])
-    // })
-   console.log(this.customForm)
+    this.showAlbums();
   }
 
-  get studentsArray() : any{
-    const formArray =  this.customForm.controls['students'] as FormArray;
-    console.log(formArray);
-    return formArray;
+  customUsernameValidator(control: AbstractControl) {
+    console.log(control.value);
+    if (control.value.length > 5) {
+      return { 'usernmae-val-1': true }
+    }
+    return null
   }
 
-
-  get usersFormArray() : any{
-    const formArray =  this.usersFormGroup.controls['users'] as FormArray;
-    console.log(formArray);
-    return formArray;
+  saveLogin() {
+    console.log(this.loginForm)
+    this.loginForm.markAllAsTouched();
+    console.log(this.loginForm.value);
+    this.router.navigate(['../posts'], { relativeTo: this.activatedRoute })
   }
 
-  save(){
-    console.log(this.customForm.valid);
-    console.log(this.customForm.value);
-  }
-
-  add(){
-    (this.customForm.controls['students'] as FormArray).push(this.formBuilder.group({
-      name : new FormControl(''),
-      email: new FormControl('')
-    }));
-  }
-
-  deleteItem(index:number) {
-    (this.customForm.controls['students'] as FormArray).removeAt(index);
-  }
-
-  customEmailValidator(ctrl: AbstractControl) : ValidationErrors | null{
-    console.log(ctrl.value);
-    return {'temp':true};
-  }
-
-
-  customEmailAsyncValidator(ctrl: AbstractControl) : Promise<ValidationErrors | null> | Observable<ValidationErrors | null>  {
-    console.log(ctrl.value);
-    return of(null);
+  showAlbums() {
+    this.albumService.getAlbums().subscribe((result) => {
+      this.albums = result;
+    })
   }
 
 }

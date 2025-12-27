@@ -1,0 +1,7 @@
+<p>NgRx Component Store Posts works!</p>
+
+<h3>Posts</h3>
+<div *ngFor="let post of posts$ | async"> {{post.title}}</div>
+
+<h3>Albums</h3>
+<div *ngFor="let album of albums$ | async"> {{album.title}}</div>

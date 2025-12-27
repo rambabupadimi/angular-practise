@@ -1,0 +1,6 @@
+<p>posts works!</p>
+
+<div *ngFor="let post of postsList$ | async"> {{post.title}}</div>
+
+
+<div *ngFor="let album of albumsList$ | async"> {{album.title}}</div>

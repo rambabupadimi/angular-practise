@@ -1,0 +1,31 @@
+<p>todo works!</p>
+<p>todos works!</p>
+
+<form #todoForm="ngForm" (ngSubmit)="submitForm()">
+  <input type="text" [(ngModel)]="message" required name="message" />
+  <button type="submit" [disabled]="todoForm.invalid">Add Todo</button>
+</form>
+
+<br />
+
+<div *ngFor="let todo of todosListPending$ | async">
+  <input
+    type="checkbox"
+    [checked]="todo.completed"
+    (change)="updateTodo($event,todo.id)"
+  />
+  {{todo.title}}
+  <button type="button" (click)="deleteTodo(todo.id)">Delete</button>
+</div>
+
+<br />
+
+<div *ngFor="let todo of todosListCompleted$ | async">
+  <input
+    type="checkbox"
+    [checked]="todo.completed"
+    (change)="updateTodo($event,todo.id)"
+  />
+  {{todo.title}}
+  <button type="button" (click)="deleteTodo(todo.id)">Delete</button>
+</div>

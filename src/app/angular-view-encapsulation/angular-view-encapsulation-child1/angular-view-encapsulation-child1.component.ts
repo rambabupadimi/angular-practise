@@ -7,6 +7,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './angular-view-encapsulation-child1.component.html',
   styleUrl: './angular-view-encapsulation-child1.component.scss',
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None
 })
 export class AngularViewEncapsulationChild1Component {}

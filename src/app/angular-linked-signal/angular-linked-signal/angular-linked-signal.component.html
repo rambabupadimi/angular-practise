@@ -1,1 +1,16 @@
 <p>angular-linked-signal works!</p>
+
+@for (item of mobilesList(); track $index) {
+  <!-- <div class="mobile-item" (click)="selectedItem(item)"> -->
+    <h3>{{ item }}</h3>
+  <!-- </div> -->
+}
+<br/><br/><hr/>
+<!-- Title : {{selectedMobile().name}} <br/>
+Price : {{selectedMobile().price}} <br/>
+Stock : {{selectedMobile().stock- this.quantity()}}<br/>
+<button (click) ="addToCard()">add</button>
+<button (click) ="removeCard()">remove</button>
+<br/><br/><hr/>
+Total Cost : {{totalPrice()}} -->
+

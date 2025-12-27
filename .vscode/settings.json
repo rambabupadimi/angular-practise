@@ -1,0 +1,10 @@
+{
+    "github.copilot.advanced": {},
+    // Disable Copilot inline suggestions in this workspace
+    "github.copilot.inlineSuggest.enable": false,
+    // Disable built-in editor inline suggestions
+    "editor.inlineSuggest.enabled": false,
+    // Disable quick suggestions popup
+    "editor.quickSuggestions": { "other": true, "comments": false, "strings": false },
+    "editor.suggestOnTriggerCharacters": true
+}

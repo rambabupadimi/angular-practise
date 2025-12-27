@@ -1,0 +1,12 @@
+<p>todo-list works!</p>
+<!-- display todos list & loading and error state-->
+<ul>
+  <li *ngFor="let todo of todosList$ | async">
+    {{ todo.title }}
+  </li>
+</ul>
+<div *ngIf="todosLoading$ | async">Loading...</div>
+<div *ngIf="todosError$ | async as error">
+  Error: {{ error }}
+</div>
+<!-- display todos list-->

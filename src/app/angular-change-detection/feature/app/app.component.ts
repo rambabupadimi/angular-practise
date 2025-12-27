@@ -19,6 +19,9 @@ export class AppComponent implements OnChanges, OnInit, DoCheck {
   }
   ngOnInit(): void {
     console.log('app- on init');
+
+
+
   }
   ngDoCheck(): void {
     console.log('app- on docheck');

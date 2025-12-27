@@ -6,7 +6,7 @@ import { UserFormsComponent } from './user-forms/user-forms.component';
 
 const routes: Routes = [{
   path:'',
-  component:UserFormsComponent
+  component:AngularFormsComponent
 }];
 
 @NgModule({

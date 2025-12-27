@@ -7,6 +7,7 @@
 <h2> 3. Custom directive and send input parameters & output parameters</h2>
 
 
+
 <ng-container *ngIf="true;else elseContent"> If content</ng-container>
 <ng-template #elseContent>Else content</ng-template>
 
@@ -35,3 +36,10 @@
 <p appStyle [mycolor]="'#FF0000'" [myweight]="900" (myEmit)="showAlert($event)">Rambabu</p>
 
 <p appUser [userFontWeight] ="900" >Ramu - click on text</p>
+
+<p appTemp>Click Me</p>
+
+
+<button type="button"  [disabled]="defaultState" [ngStyle]="{color: defaultState ? 'red':'green' }"> Text Button</button>
+
+<button type="button" (click) ="toggleButton()"> Toggle Button</button>

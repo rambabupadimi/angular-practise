@@ -1,0 +1,43 @@
+<p>accessability works!</p>
+<nav aria-label="Breadcrumb">
+  <ol class="breadcrumb">
+    <li><a  ariaCurrentWhenActive="page" routerLinkActive="actve-item" routerLink="/accessability/one">Home</a></li>
+    <li><a ariaCurrentWhenActive="page" routerLinkActive="actve-item" routerLink="/accessability/two">Products</a></li>
+    <li ><a ariaCurrentWhenActive="page"  routerLinkActive="actve-item" routerLink="/accessability/three">Smartphones</a></li>
+  </ol>
+</nav>
+<router-outlet/>
+
+
+<!--
+When you build navigation — like breadcrumbs, tabs,
+menus — screen reader users need to know which item they are currently on,
+ just like sighted users can see it highlighted.
+-->
+
+
+<!--
+
+
+Task	Use
+Buttons	<button> not <div> or <span>
+Links	<a href="..."> not <div onclick="...">
+Inputs	<input>, <textarea>, <select>
+
+Semantic elements come with built-in keyboard support.
+If you must use custom elements, you need to add tabindex, keyboard handlers, and ARIA roles manually.
+-->
+
+<!--
+✅ 5. Use ARIA Roles for Complex Widgets
+Widget	Role
+Dialog	role="dialog" + aria-modal="true"
+Tabs	role="tablist", role="tab", role="tabpanel"
+Menus	role="menu", role="menuitem"
+-->
+
+
+<!--
+<p>, <span>, <div> are default not focusable, if you want to make focusable you can add tabindex = 0;
+Use tabindex="-1" if you want it focusable only by code, not by Tab. or foucs()
+-->

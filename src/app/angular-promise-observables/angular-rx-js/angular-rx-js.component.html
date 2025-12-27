@@ -1,3 +1,10 @@
 <p>angular-rx-js works!</p>
 
 <input  #inputEl  type="text"/>
+
+<input type="text" [formControl]="searchControl"/>
+<select [formControl]="dropDownControl">
+  <option value="red">RED</option>
+    <option value="green">GREEN</option>
+      <option value="blue">BLUE</option>
+</select>

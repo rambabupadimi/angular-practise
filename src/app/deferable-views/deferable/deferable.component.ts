@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { DeferableItemComponent } from "../deferable-item/deferable-item.component";
 
 @Component({
-    selector: 'app-deferable',
-    imports: [DeferableItemComponent],
-    templateUrl: './deferable.component.html',
-    styleUrl: './deferable.component.scss'
+  selector: 'app-deferable',
+  imports: [CommonModule, DeferableItemComponent],
+  templateUrl: './deferable.component.html',
+  styleUrl: './deferable.component.scss',
+  standalone: true
 })
 export class DeferableComponent {
 
@@ -16,15 +18,16 @@ export class DeferableComponent {
    */
 
 
+
+
   showInfo = false;
 
+  showAdditionalInfo() {
+    //this.showInfo = true;
 
-  showAdditionalInfo(){
-    this.showInfo = true;
-
-    setTimeout(()=>{
+    setTimeout(() => {
       this.showInfo = true;
       console.log('reset happened');
-    },3000)
+    }, 3000)
   }
 }

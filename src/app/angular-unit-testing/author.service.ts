@@ -14,4 +14,8 @@ export class AuthorService {
       catchError(()=> throwError(()=> new Error('Error in API')))
     )
    }
+
+   isLoggedIn() {
+    return true;
+   }
 }

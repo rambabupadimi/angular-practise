@@ -1,8 +1,19 @@
 <p>deferable works!</p>
 
-
 <button type="button" (click)="showAdditionalInfo()">Show Component</button>
 <!-- view == templateRef variable-->
+
+<h2>Scroll down to load lazy component:</h2>
+
+<div style="height: 1000px; background: #eee;">
+  Scroll me...
+</div>
+
+ @defer (on viewport) {
+  <app-deferable-item/>
+} @placeholder {
+  <p>🌀 Loading component...</p>
+}
 
 <!-- @defer (on viewport) {} -->
 <!-- @defer (on viewport(view))-->
@@ -11,13 +22,41 @@
 <!-- @defer (on hover(btn)) -->
 <!-- @defer (on immediate) -->
 
-@defer (when showInfo) {
-    <app-deferable-item/>
+<!-- @defer (when showInfo) {
+  <section>
+    <app-deferable-item />
+  </section>
+  } @placeholder {
+  <p>Dynamic content will appear</p>
+  } @loading {
+  <p>Loading....</p>
+  } @error {
+  <p>Failed to load content</p>
+  } -->
+
+
+<!-- <div #greeting>Hello!</div>
+
+@defer (on hover(greeting)) {
+<section>
+  <app-deferable-item />
+</section>
 } @placeholder {
-    <p>Dynamic content will appear</p>
-} @loading (after 100ms; minimum 1s) {
-    <p>Loading....</p>
+<p>Dynamic content will appear</p>
+} @loading {
+<p>Loading....</p>
 } @error {
-    <p>Failed to load content</p>
-}
- 
+<p>Failed to load content</p>
+} -->
+
+<!-- @defer (on timer(5000)) {
+  <section>
+    <app-deferable-item />
+  </section>
+  } @placeholder {
+  <p>Dynamic content will appear</p>
+  } @loading {
+  <p>Loading....</p>
+  } @error {
+  <p>Failed to load content</p>
+  } -->

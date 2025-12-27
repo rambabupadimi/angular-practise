@@ -1,21 +1,16 @@
 <p>angular-forms works!</p>
 
-<button type="button" (click)="add()"> Add Item</button>
 
-<form [formGroup]="customForm">
-    <!-- <input type="text" formControlName="name" />
-    <input type="text" formControlName="age" /> -->
+<form [formGroup]="loginForm" (ngSubmit)="saveLogin()">
+      <input type="text" formControlName="username"/>
+      <p class="error-required-username" *ngIf="loginForm.controls['username'].touched && loginForm.controls['username']?.errors?.required == true">Username required</p>
+      <br/>
+      <input type="text" formControlName="password"/>
+       <p name="error-required-password" *ngIf="loginForm.controls['password'].touched && loginForm.controls['password']?.errors?.required == true">Username required</p>
+              <p *ngIf="loginForm.controls['password']?.errors?.['minlength']">Min Length required</p>
+                     <p *ngIf="loginForm.controls['password']?.errors?.['maxlength']">Max length required</p>
 
-    <div formArrayName="students">
-    <div *ngFor="let item of studentsArray.controls; let i = index">
-        <div [formGroupName]="i">
-                <input type="text" formControlName="name"/>
-                <input type="text" formControlName="email"/>
-        </div>
-        <button type="button" (click)="deleteItem(i)"> Delete</button>
-    </div>
-    </div>
-    <button type="submit" (click)="save()"> Add</button>
-
+      <br/>
+      <button type="submit">LOGIN</button>
 </form>
 

@@ -1,0 +1,31 @@
+<p>accessability1 works!</p>
+<form>
+  <label for ="firstname"> First Name</label>
+  <input type="text" name="firsname" aria-describedby="error-user-message" appAccessabilityHighlight/>
+  <p id="error-user-message"> Username required</p>
+  <br />
+
+  <label for ="lastname"> Last Name</label>
+  <input type="text" name="lastname" /><br />
+  <button type="submit">Sumbit</button>
+</form>
+
+
+
+  <div  role="button"
+  tabindex="0"
+  (click)="callMe()"
+  (keydown.enter)="callMe()"
+  (keydown.space)="callMe()">SumbitRam</div>
+
+    <div  role="button"
+  tabindex="0"
+  (click)="callMe()"
+  (keydown.enter)="callMe()"
+  (keydown.space)="callMe()">SumbitRam2</div>
+
+    <div  role="button"
+  tabindex="0"
+  (click)="callMe()"
+  (keydown.enter)="callMe()"
+  (keydown.space)="callMe()">SumbitRam3</div>

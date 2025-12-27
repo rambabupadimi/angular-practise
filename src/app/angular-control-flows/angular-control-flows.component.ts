@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AngularControlFlowsComponent {
 
-  users = [
+  users:any = [
     {
       id:1,
       name:'ramu'
@@ -19,4 +19,6 @@ export class AngularControlFlowsComponent {
       name:'temp'
     }
   ]
+
+  theme = 'light';
 }

@@ -1,0 +1,20 @@
+
+
+
+
+<!-- <p>{{htmlSnippet}}<p> -->
+<div [innerHTML]="htmlSnippet"></div>
+<!-- safe value must be  property binding-->
+
+
+
+<br/>
+<a [href]="dangerousUrl">Click Dangerous URL</a> <br/><br/>
+<a [href]="trustedUrl">CLICK TRUSTED URL</a>
+<br/><br/>
+
+<iframe class="e2e-iframe-trusted-src" width="100" height="100" [src]="dangerousUrl" title="trusted video url"></iframe><br/><br/>
+<iframe class="e2e-iframe-trusted-src" width="100" height="100" [src]="videoUrl" title="trusted video url"></iframe><br/><br/>
+
+
+

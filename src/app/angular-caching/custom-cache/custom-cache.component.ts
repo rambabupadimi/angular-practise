@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../users.service';
 import { CacheService } from '../../cache.service';
-import { DynamicTableComponent } from '@rambabupadimi123/dynamic-table';
+// import { DynamicTableComponent } from '@rambabupadimi123/dynamic-table';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-custom-cache',
-    imports: [DynamicTableComponent, AsyncPipe],
+    imports: [ AsyncPipe],
     templateUrl: './custom-cache.component.html',
     styleUrl: './custom-cache.component.scss'
 })
@@ -18,7 +18,7 @@ export class CustomCacheComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
     'email',
-   
+
   ];
   public columns: any[] = [
     {name:'name',label: 'Name'},

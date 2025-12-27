@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "id": 101,
+    "title": "Mock post one",
+    "body": "This is the first mock post body"
+  },
+  {
+    "userId": 2,
+    "id": 102,
+    "title": "Mock post two",
+    "body": "Second mock post body"
+  },
+  {
+    "userId": 3,
+    "id": 103,
+    "title": "Mock post three",
+    "body": "Third mock post body"
+  }
+]

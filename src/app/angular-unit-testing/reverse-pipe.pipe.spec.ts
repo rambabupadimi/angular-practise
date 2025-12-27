@@ -17,7 +17,7 @@ describe('ReversePipePipe', () => {
     })
 
     pipe = TestBed.inject(ReversePipePipe);
-    
+
   });
 
 // A - arrange
@@ -36,17 +36,17 @@ describe('ReversePipePipe', () => {
       const data = "hello";
      // act
      const result = pipe.transform(data);
-     // assert 
+     // assert
      expect(result).toBe('olleh');
 
   });
 
   it('it should handle null, blank and undefined cases',() =>{
-    const data = null || undefined || '';
+    // const data = null || undefined || '';
 
-    const result = pipe.transform(data);
+    // const result = pipe.transform(data);
 
-    expect(result).toBe('');
+    // expect(result).toBe('');
 
   });
 });

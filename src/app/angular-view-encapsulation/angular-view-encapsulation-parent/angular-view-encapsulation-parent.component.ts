@@ -9,6 +9,6 @@ import { AngularViewEncapsulationChild2Component } from '../angular-view-encapsu
   imports: [CommonModule, AngularViewEncapsulationChild1Component,AngularViewEncapsulationChild2Component],
   templateUrl: './angular-view-encapsulation-parent.component.html',
   styleUrl: './angular-view-encapsulation-parent.component.scss',
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None
 })
 export class AngularViewEncapsulationParentComponent {}
